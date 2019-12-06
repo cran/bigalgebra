@@ -11,7 +11,7 @@ is_transposed = function( tcode )
 check_matrix = function(A, classes=c('big.matrix', 'matrix'), 
   types='double')
 {
-  if (!any( class(A) == classes))
+  if (!any( class(A) %in% classes))
   {
     stop("A is not the correct class type")
   }
@@ -19,7 +19,7 @@ check_matrix = function(A, classes=c('big.matrix', 'matrix'),
   {
     stop("The matrix type is not correct")
   }
-  return( ifelse( class(A) == 'big.matrix', TRUE, FALSE ) )
+  return( ifelse( inherits(A, 'big.matrix'), TRUE, FALSE ) )
 }
 
 # Do I need a function to add a scalar to each element of a matrix?

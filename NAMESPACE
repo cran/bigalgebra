@@ -7,3 +7,4 @@ exportMethods("Arith")
 export("daxpy")
 useDynLib(bigalgebra)
 
+importFrom("utils", "capture.output")
