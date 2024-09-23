@@ -1,13 +1,13 @@
-c9e8b327c44871e43ef344daed3b325a *DESCRIPTION
+17e3334c29da7d064f26c3878a85fce3 *DESCRIPTION
 abfec5cb224cb5f4e17ef4e25ffcdd6f *NAMESPACE
-27c564398decbba97af4b24eb11a5843 *NEWS.md
+9ba9f2a92e238979596ea0f640839c9c *NEWS.md
 2cac959aac3c4fc291055c5c47eeb441 *R/bigalgebra.R
 b1890d3225cf8093684ab4869598f838 *R/methods.R
 741717016c6624344e510477db6a6207 *R/utility.R
 ad1bd7d30356c6d0329c2dba31c2e6b9 *R/wrappers.R
 499a34ae750313612a77a947cd071bc2 *R/zzz.R
 2a8da443fbe89424d999e173bb43b3db *README
-292e9801d2426c6ce98e44e14e629fc2 *README.md
+ab4b600209c6a9573c6047cc5ffba05b *README.md
 5c41d13ecfc58a29a13962b2c804be11 *cleanup
 d68a923da2c2b2e1d110ecf8131a3ec4 *inst/CITATION
 86a55cbdc582c072ed6d52bf0a318677 *man/Ops.Rd
@@ -22,7 +22,7 @@ db14e59d6f33a804a4a1f0f161e6dd46 *man/dgeev.Rd
 195c5824f14119255ea6286f0d6b4ac8 *man/dscal.Rd
 ce06971071b8c44b81085622fb49abef *src/Makevars
 bdc868c54047dc917d9a10f93aa169dc *src/R_init_bigalgebra.c
-eaee796e3ca5e375cbd2d2cc8e1e0b1d *src/bigalgebra.cpp
+2c71c40d69b730b05b0296bb08b1d87e *src/bigalgebra.cpp
 21241c3bb77edbe79c5d78d876f4eaa9 *src/bigalgebra.h
 666e78a6cbe654af5179f087466d2606 *src/refblas64/daxpy.f
 58913cb23ea228195dd174c9f8c5601d *src/refblas64/dgemm.f
