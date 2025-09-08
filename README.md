@@ -98,6 +98,7 @@ library("bigmemory")
 A <- bigmemory::big.matrix(5,4,init = 1)
 B <- bigmemory::big.matrix(4,4,init = 2)
 
+library("bigalgebra")
 C <- A %*% B       # Returns a new big.matrix object
 D <- A[] %*% B[]   # Compute the same thing in R
 

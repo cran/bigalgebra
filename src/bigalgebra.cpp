@@ -188,7 +188,7 @@ extern "C" {
     int8_dpotrf (UUPLO, &NN, AA, &LLDA, &IINFO);
 #else
     /* Fortran interface via F77_CALL */
-    F77_CALL(dpotrf) (UUPLO, &NN, AA, &LLDA, &IINFO FCLEN1);
+    F77_CALL(dpotrf) ((char*)UUPLO, &NN, AA, &LLDA, &IINFO FCLEN1);
     
     
 #endif
@@ -260,6 +260,44 @@ extern "C" {
 #endif
   return R_NilValue;
   }
+  
+  
+  /* --- dgeev workspace query: returns optimal LWORK as an R integer --- */
+  SEXP dgeev_lwork_query_wrapper(SEXP JOBVL, SEXP JOBVR, SEXP N)
+  {
+    const char *jvl = Rf_translateChar(Rf_asChar(JOBVL));
+    const char *jvr = Rf_translateChar(Rf_asChar(JOBVR));
+    int n    = Rf_asInteger(N);
+    int lda  = (n > 0 ? n : 1);
+    int ldvl = (*jvl == 'V' ? n : 1);
+    int ldvr = (*jvr == 'V' ? n : 1);
+    int lwork = -1;
+    int info  = 0;
+  
+    /* Minimal dummy arrays; with LWORK=-1 dgeev will not use them */
+    SEXP A   = PROTECT(Rf_allocVector(REALSXP, (R_xlen_t)lda * n));
+    SEXP WR  = PROTECT(Rf_allocVector(REALSXP, n));
+    SEXP WI  = PROTECT(Rf_allocVector(REALSXP, n));
+    SEXP VL  = PROTECT(Rf_allocMatrix(REALSXP, ldvl, n));
+    SEXP VR  = PROTECT(Rf_allocMatrix(REALSXP, ldvr, n));
+    SEXP WORK= PROTECT(Rf_allocVector(REALSXP, 1));
+  
+    double *pA   = REAL(A);
+    double *pWR  = REAL(WR);
+    double *pWI  = REAL(WI);
+    double *pVL  = REAL(VL);
+    double *pVR  = REAL(VR);
+    double *pWORK= REAL(WORK);
+  
+    F77_CALL(dgeev)((char*)jvl, (char*)jvr, &n, pA, &lda, pWR, pWI,
+                                pVL, &ldvl, pVR, &ldvr, pWORK, &lwork, &info
+                                FCONE FCONE);
+                int opt = (info == 0) ? (int)pWORK[0] : info; /* negative info -> pass it back */
+    UNPROTECT(6);
+    return Rf_ScalarInteger(opt);
+  }
+  
+
   
   /* DGEEV: eigenvalues and (optionally) eigenvectors of a real matrix */
   SEXP dgeev_wrapper (SEXP JOBVL, SEXP JOBVR, SEXP N, SEXP A, SEXP LDA, SEXP WR,

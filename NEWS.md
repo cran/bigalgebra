@@ -1,6 +1,12 @@
+# bigalgebra 2.0.1
+
+* Code fix ti get rid of erors for gcc 1.5 or windows based.
+
 # bigalgebra 2.0.0
 
-* Code cleaning and improvement. Bug fixes and updates to adapt to new CRAN checks.
+* Code cleaning and improvement. 
+* Bug fixes and updates to adapt to new CRAN checks.
+* Added tests
 
 # bigalgebra 1.1.2
 
