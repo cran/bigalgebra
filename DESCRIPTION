@@ -2,17 +2,18 @@ Package: bigalgebra
 Type: Package
 Title: 'BLAS' and 'LAPACK' Routines for Native R Matrices and
         'big.matrix' Objects
-Version: 2.0.2
-Date: 2025-09-08
+Version: 3.0.0
+Date: 2025-10-05
 Depends: bigmemory (>= 4.0.0)
 Imports: methods
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 LinkingTo: bigmemory, BH, Rcpp
 Authors@R: c(
-	person(given = "Frederic", family= "Bertrand", role = c("cre", "ctb"), email = "frederic.bertrand@lecnam.net", comment = c(ORCID = "0000-0002-0837-8281")),
+	person(given = "Frederic", family= "Bertrand", role = c("cre", "aut"), email = "frederic.bertrand@lecnam.net", comment = c(ORCID = "0000-0002-0837-8281")),
 	person(given = "Michael J.", family= "Kane", role = c("aut")),
 	person(given = "Bryan", family= "Lewis", role = c("aut")),
 	person(given = "John W.", family= "Emerson", role = c("aut")))
-Author: Frederic Bertrand [cre, ctb] (ORCID:
+Author: Frederic Bertrand [cre, aut] (ORCID:
     <https://orcid.org/0000-0002-0837-8281>),
   Michael J. Kane [aut],
   Bryan Lewis [aut],
@@ -24,12 +25,12 @@ Encoding: UTF-8
 Copyright: (C) 2014 Michael J. Kane, Bryan Lewis, and John W. Emerson
 LazyLoad: yes
 NeedsCompilation: yes
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://fbertran.github.io/bigalgebra/,
         https://github.com/fbertran/bigalgebra/
 BugReports: https://github.com/fbertran/bigalgebra/issues/
-Suggests: testthat (>= 3.0.0)
+VignetteBuilder: knitr
 Config/testthat/edition: 3
-Packaged: 2025-09-08 00:49:28 UTC; bertran7
+Packaged: 2025-10-05 14:30:23 UTC; bertran7
 Repository: CRAN
-Date/Publication: 2025-09-08 12:00:09 UTC
+Date/Publication: 2025-10-05 15:10:02 UTC

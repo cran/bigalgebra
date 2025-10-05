@@ -11,6 +11,11 @@ exportMethods("Arith")
 # Copy a matrix
 # Y := X
 export("dcopy")
+# Vector addition
+# Y := X + Y
+export("dadd")
+# Swap contents of two vectors
+export("dswap")
 # Multiply by a scalar
 # Y := ALPHA * Y
 export("dscal")
@@ -32,11 +37,28 @@ export("dpotrf")
 # algorithm failed.
 # for now, VL and VR have to be matrices but they could be NULL
 export("dgeev")
-# Singular value decomposition (SVD) 
+# Singular value decomposition (SVD)
 # Returns: = 0 if successful
 #          < 0 if INFO = -i had an illegal value
 #          > 0 if DBDSDC did not converge
 export("dgesdd")
+export("dset")
+export("dvcal")
+export("dsub")
+export("ddot")
+export("dqddot")
+export("dhprod")
+export("dsqrt")
+export("dxyz")
+export("dsum")
+export("dasum")
+export("dnrm2")
+export("dprdct")
+export("idmin")
+export("idmax")
+export("idamin")
+export("idamax")
+export("dsymm")
 
 # #' @useDynLib bigalgebra, .registration = TRUE
 useDynLib(bigalgebra, .registration = TRUE)
