@@ -12,7 +12,7 @@
 
 <meta name="author" content="Frédéric Bertrand" />
 
-<meta name="date" content="2025-10-05" />
+<meta name="date" content="2026-03-24" />
 
 <title>LAPACK Decompositions with bigalgebra</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -62,7 +63,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -340,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">LAPACK Decompositions with bigalgebra</h1>
 <h4 class="author">Frédéric Bertrand</h4>
-<h4 class="date">2025-10-05</h4>
+<h4 class="date">2026-03-24</h4>
 
 
 
@@ -410,16 +411,15 @@ RAM.</p>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>                              <span class="at">backingpath =</span> <span class="fu">dirname</span>(tmp))</span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; Warning in filebacked.big.matrix(nrow(H), ncol(H), init = H, backingfile =</span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; basename(tmp), : No descriptor file given, it will be named</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; file2d4c5ccaf205.desc</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; filebb4322f32a49.desc</span></span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="fu">dgeqrf</span>(<span class="at">A =</span> H_fb)</span>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>H_fb[,][<span class="fu">upper.tri</span>(H_fb[,], <span class="at">diag =</span> <span class="cn">TRUE</span>)]</span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  [1] -2.000000e+00 -2.000000e+00 -9.614813e-17 -2.000000e+00 -9.614813e-17</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  [6] -1.739150e-33 -2.000000e+00 -9.614813e-17 -1.739150e-33  4.056603e-49</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="fu">rm</span>(H_fb); <span class="fu">gc</span>()</span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;           used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; Ncells  750437 40.1    1576932 84.3         NA  1576932 84.3</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; Vcells 1404889 10.8    8388608 64.0      65536  3091772 23.6</span></span></code></pre></div>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  [1] -2 -2  0 -2  0  0 -2  0  0  0</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="fu">rm</span>(H_fb); <span class="fu">gc</span>()</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;           used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; Ncells  756259 40.4    1596602 85.3         NA  1596602 85.3</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; Vcells 1413762 10.8    8388608 64.0      65536  3122287 23.9</span></span></code></pre></div>
 </div>
 <div id="cholesky-factorisation-with-dpotrf" class="section level2">
 <h2>Cholesky factorisation with <code>dpotrf()</code></h2>
